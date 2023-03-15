@@ -1,4 +1,4 @@
-export const goToHomePage = (navigate) => {
+export const goToPostPage = (navigate) => {
   navigate("/postPage");
 };
 
@@ -7,7 +7,7 @@ export const goToSignupPage = (navigate) => {
 };
 
 export const goToLoginPage = (navigate) => {
-  navigate("/login");
+  navigate("/");
 };
 
 

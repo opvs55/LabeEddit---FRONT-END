@@ -9,4 +9,8 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins:ital,wght@1,600&display=swap');
 `
