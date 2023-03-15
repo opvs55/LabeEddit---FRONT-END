@@ -1,57 +1,26 @@
 import { GlobalStyle } from "./CreateGlobalStyled";
 import Router from "./routes/Router";
+import { GlobalContext } from "./contexts/GlobalContext";
+import { useState } from "react";
 
 export default function App() {
 
 
-  
-  // useEffect(() => {
-  //   fetchPost();
-  // }, []);
-
-  // const fetchPost = async () => {
-  //   try {
-  //     const response = await axios.get(BASE_URL);
-  //     console.log(response)
-  //     setPost(response.data);
-  //   } catch (error) {
-  //     console.log("Erro ao buscar usuários");
-  //     console.log(error);
-  //   }
-  // };
+//loading
+const [isLoading, setIsLoading] = useState(false);
 
 
-  // const createPost = async (e) => {
-  //   e.preventDefault()
-
-  //   setIsLoading(true)
-
-  //   try {
-
-  //     const body = {
-  //       mensagem: newPost
-  //     }
-
-  //     await axios.post(BASE_URL, body);
-
-  //     setNewPost("");
-  //     setIsLoading(false)
-  //     fetchPost()
-  //   } catch (error) {
-  //     console.error(error?.response?.data);
-  //     window.alert(error?.response?.data)
-  //   }
-  // };
-
-  // const context = {
-  //   createPost,
-  //   fetchPlaylists
-  // };
+  const context = {
+    isLoading,
+    setIsLoading,
+  }
 
   return (
     <>
       <GlobalStyle />
-      <Router />
+        <GlobalContext.Provider value={context}>
+          <Router />
+        </GlobalContext.Provider>
     </>
   );
 }

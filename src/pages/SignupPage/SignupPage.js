@@ -1,14 +1,18 @@
-import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { BASE_URL } from "../../constants/url";
-import { goToHomePage, goToLoginPage } from "../../routes/coordinator";
+import { changeForm } from "../../actions/changeForm/formUtils";
+import { isValidEmail } from "../../actions/formBusiness/email";
+import { isValidPassword } from "../../actions/formBusiness/password";
+import { signup } from "../../actions/signup/signupAction";
+
 
 export default function SignupPage() {
+
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(false);
 
+  //Valores do input
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -16,39 +20,22 @@ export default function SignupPage() {
   });
 
 
-  const changeForm = (event) => {
-    setForm({ ...form, [event.target.name]: event.target.value });
-  };
-
-  const signup = async (event) => {
-    event.preventDefault()
-
-    try {
-      setIsLoading(true);
-
-      const body = {
-        name: form.name,
-        email: form.email,
-        password: form.password
-      };
-
-      const response = await axios.post(BASE_URL + "/users/signup", body);
-      const token = response.data.token;
-      window.localStorage.setItem('token', token);
-
-      setIsLoading(false);
-      goToHomePage(navigate);
-    } catch (error) {
-      setIsLoading(false);
-      console.error(error?.response?.data);
-      window.alert(error?.response?.data)
+  const handleSignUp = (event) => {
+    event.preventDefault();
+    if (!isValidEmail(form.email)) {
+      alert("por favor, insira um endereço de e-mail válido")
+    } if (!isValidPassword(form.password)){
+      alert("8 caracteres, uma letra minúscula e maiúscula, um número, um caractere especial")
+    } else{
+      signup(form, setIsLoading, navigate);
     }
   };
+
 
   return (
     <main>
       <h2>
-        <button disabled={isLoading} onClick={() => goToLoginPage(navigate)}>
+        <button disabled={isLoading} onClick={() => navigate("/")}>
           Entrar
         </button>
       </h2>
@@ -58,12 +45,12 @@ export default function SignupPage() {
         </h1>
 
         <article>
-          <form onSubmit={signup} autoComplete="off">
+          <form onSubmit={handleSignUp} autoComplete="off">
             <section>
               <input
                 name={"name"}
                 value={form.name}
-                onChange={changeForm}
+                onChange={(event) => changeForm(event, form, setForm)}
                 placeholder={"Apelido"}
               />
             </section>
@@ -71,7 +58,7 @@ export default function SignupPage() {
               <input
                 name={"email"}
                 value={form.email}
-                onChange={changeForm}
+                onChange={(event) => changeForm(event, form, setForm)}
                 placeholder={"Email"}
               />
             </section>
@@ -80,7 +67,7 @@ export default function SignupPage() {
               <input
                 name={"password"}
                 value={form.password}
-                onChange={changeForm}
+                onChange={(event) => changeForm(event, form, setForm)}
                 placeholder={"Senha"}
               />
             </section>
@@ -92,7 +79,7 @@ export default function SignupPage() {
               <span>
                 <input
                   type="checkbox"
-                  onChange={changeForm}
+                  onChange={(event) => changeForm(event, form, setForm)}
                 />
                 Eu concordo em receber emails sobre coisas legais no Labeddit
               </span>
