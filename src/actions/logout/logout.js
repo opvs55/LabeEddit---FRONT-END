@@ -1,9 +1,9 @@
 import { goToLoginPage } from "../../routes/coordinator";
 
 
-export const logoutAccount = async (setIsLoading, navigate) => {
+export const logoutAccount = async (setIsLoading, navigate, setSubPost) => {
 
-    
+    setSubPost(false)
     try {
         setIsLoading(true);
 

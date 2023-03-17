@@ -4,6 +4,10 @@ import { changeForm } from "../../actions/changeForm/formUtils";
 import { isValidEmail } from "../../actions/formBusiness/email";
 import { isValidPassword } from "../../actions/formBusiness/password";
 import { signup } from "../../actions/signup/signupAction";
+import { SignUpContainer } from "./SignUpPage.Styled";
+
+
+import Logotop from "./../../img/logoTop.png"
 
 
 export default function SignupPage() {
@@ -24,23 +28,25 @@ export default function SignupPage() {
     event.preventDefault();
     if (!isValidEmail(form.email)) {
       alert("por favor, insira um endereço de e-mail válido")
-    } if (!isValidPassword(form.password)){
+    } if (!isValidPassword(form.password)) {
       alert("8 caracteres, uma letra minúscula e maiúscula, um número, um caractere especial")
-    } else{
+    } else {
       signup(form, setIsLoading, navigate);
     }
   };
 
 
   return (
-    <main>
-      <h2>
-        <button disabled={isLoading} onClick={() => navigate("/")}>
+    <SignUpContainer>
+      <div className="ContainerTop">
+        <img className="LogoTop" src={Logotop} alt="LogoTopLabenu" />
+        <button button disabled={isLoading} onClick={() => navigate("/")}>
           Entrar
         </button>
-      </h2>
-      <section>
-        <h1>
+      </div>
+
+      <section className="SignUpInputContainer">
+        <h1 className="TextTittleTop">
           Olá, boas vindas ao labEddit!
         </h1>
 
@@ -48,6 +54,7 @@ export default function SignupPage() {
           <form onSubmit={handleSignUp} autoComplete="off">
             <section>
               <input
+                className="InputSignUp"
                 name={"name"}
                 value={form.name}
                 onChange={(event) => changeForm(event, form, setForm)}
@@ -56,6 +63,7 @@ export default function SignupPage() {
             </section>
             <section>
               <input
+                className="InputSignUp"
                 name={"email"}
                 value={form.email}
                 onChange={(event) => changeForm(event, form, setForm)}
@@ -63,8 +71,9 @@ export default function SignupPage() {
               />
             </section>
 
-            <section>
+            <section className="LastInputContainer">
               <input
+                className="InputSignUp"
                 name={"password"}
                 value={form.password}
                 onChange={(event) => changeForm(event, form, setForm)}
@@ -73,22 +82,24 @@ export default function SignupPage() {
             </section>
 
             <section>
-              <label>Ao continuar, você concorda com o nosso Contrato de
-                usuário e nossa Política de Privacidade</label>
+              <label className="ContractText">Ao continuar, você concorda com o nosso <a href="#">Contrato de
+                usuário</a> e nossa <a href="#">Política de Privacidade</a></label>
               <br />
-              <span>
+              <div className="CheckBoxContainer">
                 <input
+                  className="InputCheckBox"
                   type="checkbox"
                   onChange={(event) => changeForm(event, form, setForm)}
                 />
-                Eu concordo em receber emails sobre coisas legais no Labeddit
-              </span>
+                <span className="CheckBoxText">
+                  Eu concordo em receber emails sobre coisas legais no Labeddit
+                </span>
+              </div>
             </section>
-
-            <button disabled={isLoading}>Cadastrar</button>
+            <button className="SignUp" disabled={isLoading}>Cadastrar</button>
           </form>
         </article>
       </section>
-    </main>
+    </SignUpContainer>
   );
 }

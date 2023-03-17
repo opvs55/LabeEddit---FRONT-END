@@ -14,11 +14,15 @@ flex-direction: column;
     height: 40px;
     background: #EDEDED;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
 }
 .logoTop{
     position: relative;
     left: 180px;
     top: 3px;
+    width: 28.02px;
+    height: 31.67px;
 }
 
 
@@ -51,10 +55,17 @@ form > button{
 }
 .Line{
     width: 363.01px;
-    border: 1px solid;
-    background: linear-gradient(90deg, #FF6489 0%, #F9B24E 100%), #4088CB;
+    height: 2px;
+    background-image: linear-gradient(45deg, #FF6489 30%, #F9B24E 70%);
     margin-top:20px;
     margin-bottom: 10px;
+}
+.CancelLogo{
+    width: 25.6px;
+    height: 24px;
+    position: absolute;
+    top: 2px;
+    margin: 6px;
 }
 
 

@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { login } from "../../actions/login/loginAction";
 import { goToSignupPage } from "../../routes/coordinator";
 import { changeForm } from "../../actions/changeForm/formUtils";
+import { LoginContainer } from "./LoginPage.Styled";
+import LogoLogin from "./../../img/LogoLogin.png"
 
 export default function LoginPage() {
 
@@ -19,13 +21,17 @@ export default function LoginPage() {
   };
 
   return (
-    <main>
-      <section>
+    <LoginContainer>
+        <div className="LogoContainer">
+          <img className="LogoLogin" src={LogoLogin} alt="Login"/>
+          <h2 className="TittleLogo">LabEddit</h2>
+          <p className="subTittleLogo">O projeto de rede social da Labenu</p>
+        </div>
         <article>
           <form onSubmit={handleLogin} autoComplete="off">
             <section>
-              <label>Email</label>
               <input
+                placeholder="Email"
                 name={"email"}
                 value={form.email}
                 onChange={(event) => changeForm(event, form, setForm)}
@@ -33,22 +39,23 @@ export default function LoginPage() {
             </section>
 
             <section>
-              <label>Senha</label>
               <input
+                className="input2"
+                placeholder="Senha"
                 name={"password"}
                 value={form.password}
                 onChange={(event) => changeForm(event, form, setForm)}
               />
             </section>
-            <button disabled={isLoading}>Continuar</button>
+            <button className="Login" disabled={isLoading}>Continuar</button>
           </form>
+          <div className="Line"></div>
           <h2>
-            <button disabled={isLoading} onClick={() => goToSignupPage(navigate)}>
+            <button className="NewAccountButton" disabled={isLoading} onClick={() => goToSignupPage(navigate)}>
               Crie uma conta
             </button>
           </h2>
         </article>
-      </section>
-    </main>
+    </LoginContainer>
   );
 }

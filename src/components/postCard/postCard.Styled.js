@@ -76,6 +76,12 @@ margin: 10px;
         line-height: 12px;
         text-align: center;     
     }
+    .FirstBalloon> img{
+        cursor: pointer;
+    }
+    .SecondBallon> img{
+        cursor: pointer;
+    }
 
     
 `
