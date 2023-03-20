@@ -1,5 +1,6 @@
+
 export const goToPostPage = (navigate) => {
-  navigate("/postPage");
+  navigate("/postpage");
 };
 
 export const goToSignupPage = (navigate) => {
@@ -8,6 +9,10 @@ export const goToSignupPage = (navigate) => {
 
 export const goToLoginPage = (navigate) => {
   navigate("/");
+};
+
+export const goToSubPostPage = (navigate, idSubPost) => {
+  navigate(`/postpage/${idSubPost}/subpost`);
 };
 
 

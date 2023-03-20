@@ -9,7 +9,7 @@ import LogoLogin from "./../../img/LogoLogin.png"
 export default function LoginPage() {
 
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
+  
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -17,7 +17,7 @@ export default function LoginPage() {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    login(form, setIsLoading, navigate);
+    login(form, navigate);
   };
 
   return (
@@ -47,11 +47,11 @@ export default function LoginPage() {
                 onChange={(event) => changeForm(event, form, setForm)}
               />
             </section>
-            <button className="Login" disabled={isLoading}>Continuar</button>
+            <button className="Login">Continuar</button>
           </form>
           <div className="Line"></div>
           <h2>
-            <button className="NewAccountButton" disabled={isLoading} onClick={() => goToSignupPage(navigate)}>
+            <button className="NewAccountButton" onClick={() => goToSignupPage(navigate)}>
               Crie uma conta
             </button>
           </h2>

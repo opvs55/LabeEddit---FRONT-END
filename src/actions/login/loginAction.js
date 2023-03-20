@@ -1,10 +1,8 @@
 import axios from "axios";
 import { BASE_URL } from "../../constants/url";
 
-export const login = async (form, setIsLoading, navigate) => {
+export const login = async (form, navigate) => {
     try {
-        setIsLoading(true);
-
         const body = {
             email: form.email,
             password: form.password,
@@ -14,12 +12,9 @@ export const login = async (form, setIsLoading, navigate) => {
         const token = response.data.token;
 
         window.localStorage.setItem("token", token);
-
-        setIsLoading(false);
         navigate("/PostPage");
         
     } catch (error) {
-        setIsLoading(false);
         console.error(error?.response?.data);
         window.alert(error?.response?.data);
         window.alert("Senha inválida!");
