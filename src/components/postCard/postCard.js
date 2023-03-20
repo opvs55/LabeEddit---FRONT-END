@@ -4,34 +4,37 @@ import dislike from "./../../img/dislike.png"
 import balloonchat from "./../../img/balloonchat.png"
 import { likePost } from "../../actions/likesAndDislikes/likes";
 import { dislikePost } from "../../actions/likesAndDislikes/dislikes";
+import { goToSubPostPage } from "../../routes/coordinator";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { GlobalContext } from "../../contexts/GlobalContext";
+
+
 
 
 
 
 
 export default function PostCard(props) {
+    const { setIdSubPost, setPost} = useContext(GlobalContext)
 
 
+
+    
+    const navigate = useNavigate();
+    
     const {
-        post,
-        setRenderText,
-        subPost,
-        setSubPost,
-        setSubPostText
+        post
     } = props;
 
 
-    const postId = post.id
-
     const subPostAction = () => {
-        setRenderText(post.context)
-        setSubPostText(post.subPosts)
-        if(subPost === true){
-            setSubPost(!true)
-        } else {
-            setSubPost(!false)
-        }
+        setIdSubPost(post.id)
+        goToSubPostPage(navigate, post.id)
+        setPost(post)
     }
+
+    
 
     return (
         <Card>
@@ -39,9 +42,9 @@ export default function PostCard(props) {
             <p className="Context">{post.context}</p>
             <div className="BottonContainer">
                 <div className="FirstBalloon">
-                    <img src={like} alt="Like" onClick={() => likePost(postId)} />
+                    <img src={like} alt="Like" onClick={() => likePost(post.id)} />
                     <p>{post.likes}</p>
-                    <img src={dislike} alt="dislike" onClick={() => dislikePost(postId)} />
+                    <img src={dislike} alt="dislike" onClick={() => dislikePost(post.id)} />
                 </div>
                 <div className="SecondBallon">
                     <img src={balloonchat} alt="balloon" onClick={subPostAction} />

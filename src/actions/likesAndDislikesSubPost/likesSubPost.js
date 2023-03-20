@@ -1,10 +1,9 @@
 import axios from "axios";
 import { BASE_URL } from "../../constants/url";
 
-export const dislikePost = async (postId) => {
-
-
+export const likeSubPost = async (postId) => {
     try {
+
         const token = window.localStorage.getItem('token');
         const config = {
             headers: {
@@ -16,12 +15,14 @@ export const dislikePost = async (postId) => {
             }
         };
         const body = {
-            "like": false
+            "like": true
         }
-        await axios.put(`${BASE_URL}/post/${postId}/like`, body, config);
+        await axios.put(`${BASE_URL}/post/${postId}/subpost/like`, body, config);
     } catch (error) {
         console.error(error?.response?.data)
         window.alert(error?.response?.data)
     }
 
 }
+
+

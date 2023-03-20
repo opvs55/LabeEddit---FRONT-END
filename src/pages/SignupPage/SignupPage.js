@@ -14,8 +14,6 @@ export default function SignupPage() {
 
   const navigate = useNavigate();
 
-  const [isLoading, setIsLoading] = useState(false);
-
   //Valores do input
   const [form, setForm] = useState({
     name: "",
@@ -31,7 +29,7 @@ export default function SignupPage() {
     } if (!isValidPassword(form.password)) {
       alert("8 caracteres, uma letra minúscula e maiúscula, um número, um caractere especial")
     } else {
-      signup(form, setIsLoading, navigate);
+      signup(form,  navigate);
     }
   };
 
@@ -40,7 +38,7 @@ export default function SignupPage() {
     <SignUpContainer>
       <div className="ContainerTop">
         <img className="LogoTop" src={Logotop} alt="LogoTopLabenu" />
-        <button button disabled={isLoading} onClick={() => navigate("/")}>
+        <button onClick={() => navigate("/")}>
           Entrar
         </button>
       </div>
@@ -96,7 +94,7 @@ export default function SignupPage() {
                 </span>
               </div>
             </section>
-            <button className="SignUp" disabled={isLoading}>Cadastrar</button>
+            <button className="SignUp">Cadastrar</button>
           </form>
         </article>
       </section>
