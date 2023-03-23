@@ -33,13 +33,13 @@ A aplicação é mobile first
 
 Caso não tenha uma conta - seguir para "criar uma conta"
   
-Para fazer signup Colocar: 
-nome(formato: qualquer) 
-Email(Formato: nome12345@email.com) 
+Para fazer signup Colocar: </br>
+nome(formato: qualquer) </br>
+Email(Formato: nome12345@email.com) </br>
 senha(formato: Deve ter 8 digitos, uma letra maiúscula, uma letra minúscula, um caractere especial)
   
-Para fazer Login colocar:
-email cadastrado
+Para fazer Login colocar:</br>
+email cadastrado</br>
 senha cadastrada
 
 será direcionado para a página de postagem automaticamente se todas os requisitos forem preenchidos.
