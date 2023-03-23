@@ -25,7 +25,7 @@ Crie repositórios pessoais separados para o front e para o back, pois facilita 
 
 <h2>Apresentação</h2>
 
-[BackEnd - LabeEddit](https://github.com/opvs55/LabeEddit)
+[BackEnd - LabeEddit](https://github.com/opvs55/LabeEddit)</br>
 [Linke do deploy do projeto](https://steep-religion.surge.sh/)
 
 
