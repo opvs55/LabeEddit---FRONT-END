@@ -23,7 +23,7 @@ Crie repositórios pessoais separados para o front e para o back, pois facilita 
 
 
 
-<h2>Apresentação<h2/>
+<h2>Apresentação</h2>
 
 
 [Linke do deploy do projeto](https://steep-religion.surge.sh/)
