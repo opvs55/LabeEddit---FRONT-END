@@ -29,13 +29,18 @@ Crie repositórios pessoais separados para o front e para o back, pois facilita 
 [Linke do deploy do projeto](https://steep-religion.surge.sh/)
 
 
--> A aplicação é mobile first
+A aplicação é mobile first
 
-->Caso não tenha uma conta - seguir para "criar uma conta"
-->Colocar: 
+Caso não tenha uma conta - seguir para "criar uma conta"
+  
+Para fazer signup Colocar: 
 nome(formato: qualquer) 
 Email(Formato: nome12345@email.com) 
 senha(formato: Deve ter 8 digitos, uma letra maiúscula, uma letra minúscula, um caractere especial)
+  
+Para fazer Login colocar:
+email cadastrado
+senha cadastrada
 
--> será direcionado para a página de postagem automaticamente se todas os requisitos forem preenchidos.
--> o restante da aplicação é um modelo simples de página de postagem com likes, dislikes e subpostagens
+será direcionado para a página de postagem automaticamente se todas os requisitos forem preenchidos.
+o restante da aplicação é um modelo simples de página de postagem com likes, dislikes e subpostagens
